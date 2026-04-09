@@ -65,10 +65,10 @@ export function SiteHeader() {
     >
       <div
         className={cn(
-          "mx-auto w-full max-w-[88rem] rounded-2xl border bg-background/55 px-3.5 backdrop-blur-xl transition-all duration-300 sm:px-6",
+          "mx-auto w-full max-w-[88rem] rounded-2xl border bg-background/62 px-3.5 backdrop-blur-xl transition-all duration-300 sm:px-6",
           isScrolled
-            ? "border-border/70 shadow-[0_8px_30px_rgb(0_0_0/0.12)]"
-            : "border-border/40 shadow-[0_6px_24px_rgb(0_0_0/0.06)]"
+            ? "border-border/75 shadow-[0_14px_34px_-22px_rgb(0_0_0/0.45)]"
+            : "border-border/55 shadow-[0_10px_25px_-20px_rgb(0_0_0/0.35)]"
         )}
       >
         <div className="flex h-15 items-center justify-between gap-2 sm:h-16 sm:gap-3">
@@ -90,7 +90,7 @@ export function SiteHeader() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "relative rounded-full px-3 py-2 text-sm transition-colors",
+                    "relative rounded-full px-3 py-2 text-sm font-medium transition-colors",
                     isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                   )}
                 >

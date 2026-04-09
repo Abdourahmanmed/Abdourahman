@@ -55,7 +55,7 @@ export function ContactSection() {
   return (
     <AnimatedSection id="contact" className="py-12 sm:py-14 md:py-20 lg:py-24">
       <motion.div
-        className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/80 p-4 shadow-[0_22px_70px_-35px_rgb(0,0,0,0.45)] backdrop-blur-md sm:p-6 md:p-8 lg:p-10"
+        className="surface-panel-strong relative overflow-hidden rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10"
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
@@ -69,12 +69,12 @@ export function ContactSection() {
               <Sparkles className="size-3.5" /> Disponibilité limitée
             </p>
 
-            <h2 className="mt-4 max-w-2xl text-2xl leading-tight font-semibold tracking-tight text-balance text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
+            <h2 className="heading-balance mt-4 max-w-2xl text-2xl leading-tight font-semibold text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
               Construisons ensemble une expérience digitale qui inspire
               confiance et convertit.
             </h2>
 
-            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg">
+            <p className="text-refined mt-4 max-w-xl text-sm leading-relaxed sm:text-base md:text-lg">
               Vous avez un projet web, SaaS ou mobile ambitieux ? Parlons de vos
               objectifs et transformons-les en un produit premium, performant et
               prêt à scaler.
@@ -121,7 +121,7 @@ export function ContactSection() {
 
           <motion.aside
             variants={fadeUpItem}
-            className="rounded-2xl border border-border/70 bg-background/75 p-5 shadow-[0_14px_35px_-25px_rgb(0,0,0,0.45)] backdrop-blur-sm md:p-6"
+            className="surface-panel rounded-2xl bg-background/72 p-5 md:p-6"
           >
             <p className="text-xs font-semibold tracking-[0.12em] text-muted-foreground uppercase">
               Point de contact direct
@@ -129,7 +129,7 @@ export function ContactSection() {
             <p className="mt-2 text-xl font-semibold text-foreground md:text-2xl">
               Réponse sous 24h
             </p>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+            <p className="text-refined mt-3 text-sm leading-relaxed">
               Je sélectionne peu de collaborations pour garantir un haut niveau
               d&apos;exécution. Si votre vision est claire et ambitieuse, je
               serais ravi d&apos;en discuter.
@@ -142,13 +142,13 @@ export function ContactSection() {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  className="group flex items-start justify-between rounded-xl border border-border/70 bg-card/70 px-4 py-3"
+                  className="group surface-panel flex items-start justify-between rounded-xl bg-card/68 px-4 py-3 shadow-[0_10px_30px_-24px_rgb(0,0,0,0.48)]"
                 >
                   <div>
                     <p className="text-sm font-medium text-foreground">
                       {link.label}
                     </p>
-                    <p className="max-w-[13rem] text-xs break-words text-muted-foreground sm:max-w-[15rem]">
+                    <p className="max-w-[13rem] text-xs break-words text-muted-foreground/90 sm:max-w-[15rem]">
                       {link.value}
                     </p>
                   </div>

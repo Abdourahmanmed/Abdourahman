@@ -73,7 +73,7 @@ export function HeroSection() {
 
           <motion.h1
             variants={fadeUpItem}
-            className="max-w-3xl text-3xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl md:text-5xl lg:text-6xl"
+            className="heading-balance max-w-3xl text-3xl leading-tight font-semibold sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Je conçois des applications web et mobiles haut de gamme avec
             Next.js, React.js et React Native.
@@ -81,7 +81,7 @@ export function HeroSection() {
 
           <motion.p
             variants={fadeUpItem}
-            className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg"
+            className="text-refined max-w-2xl text-sm leading-relaxed sm:text-base md:text-lg"
           >
             Développeur spécialisé dans la création de produits professionnels,
             élégants et performants. J&apos;accompagne les marques et startups
@@ -93,7 +93,7 @@ export function HeroSection() {
             {techStack.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-border/80 bg-card/65 px-3 py-1.5 text-[0.7rem] font-medium text-muted-foreground backdrop-blur sm:px-3.5 sm:text-xs"
+                className="rounded-full border border-border/80 bg-card/65 px-3 py-1.5 text-[0.7rem] font-medium text-muted-foreground/90 shadow-[inset_0_1px_0_rgb(255_255_255/0.55)] backdrop-blur sm:px-3.5 sm:text-xs"
               >
                 {tech}
               </span>
@@ -112,7 +112,7 @@ export function HeroSection() {
             </MotionLink>
             <MotionLink
               href="#contact"
-              className="inline-flex w-full items-center justify-center rounded-full border border-border bg-card/85 px-5 py-3 text-sm font-medium backdrop-blur hover:border-primary/40 sm:w-auto sm:px-6"
+              className="inline-flex w-full items-center justify-center rounded-full border border-border/75 bg-card/85 px-5 py-3 text-sm font-medium shadow-[inset_0_1px_0_rgb(255_255_255/0.45)] backdrop-blur hover:border-primary/40 hover:bg-card sm:w-auto sm:px-6"
             >
               Démarrer un projet
             </MotionLink>
@@ -121,7 +121,7 @@ export function HeroSection() {
 
         <motion.aside variants={fadeUpItem} className="relative mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none">
           <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-2xl" />
-          <div className="space-y-4 rounded-[1.75rem] border border-white/10 bg-black/45 p-3.5 shadow-2xl backdrop-blur-md sm:p-4 md:p-5">
+          <div className="surface-panel-strong soft-border space-y-4 rounded-[1.75rem] p-3.5 sm:p-4 md:p-5">
             {serviceCards.map(({ icon: Icon, title, detail }, index) => (
               <motion.div
                 key={title}
@@ -133,7 +133,7 @@ export function HeroSection() {
                   delay: 0.12 * index,
                   ease: premiumEase,
                 }}
-                className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition-colors duration-300 hover:border-white/20"
+                className="rounded-2xl border border-border/65 bg-background/55 p-4 transition-all duration-300 hover:border-primary/24 hover:bg-background/72"
               >
                 <div className="mb-3 inline-flex rounded-lg border border-primary/30 bg-primary/10 p-2 text-primary">
                   <Icon className="size-4" />
@@ -141,7 +141,7 @@ export function HeroSection() {
                 <h3 className="text-sm font-semibold text-foreground">
                   {title}
                 </h3>
-                <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground">
+                <p className="text-refined mt-1.5 text-xs leading-relaxed">
                   {detail}
                 </p>
               </motion.div>
@@ -159,9 +159,9 @@ export function HeroSection() {
                     delay: 0.18 + index * 0.08,
                     ease: premiumEase,
                   }}
-                  className="rounded-xl border border-white/10 bg-white/[0.02] px-3 py-2 text-center"
+                  className="rounded-xl border border-border/70 bg-background/52 px-3 py-2 text-center"
                 >
-                  <p className="text-[0.7rem] text-muted-foreground">
+                  <p className="text-[0.7rem] text-muted-foreground/85">
                     {stat.label}
                   </p>
                   <p className="text-xs font-semibold text-foreground">

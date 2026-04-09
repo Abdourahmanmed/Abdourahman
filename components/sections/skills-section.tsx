@@ -32,12 +32,12 @@ export function SkillsSection() {
                 <h3 className="text-base font-semibold md:text-lg">
                   {group.category}
                 </h3>
-                <span className="text-xs text-muted-foreground">
+                <span className="text-xs text-muted-foreground/85">
                   {group.skills.length} tech
                 </span>
               </div>
 
-              <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+              <p className="text-refined mb-5 text-sm leading-relaxed">
                 {group.description}
               </p>
 
