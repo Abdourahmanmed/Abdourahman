@@ -11,7 +11,7 @@ import { skillCategories } from "@/lib/constants"
 
 export function SkillsSection() {
   return (
-    <AnimatedSection id="skills" className="py-16 md:py-20">
+    <AnimatedSection id="skills" className="py-12 sm:py-14 md:py-18 lg:py-20">
       <SectionHeading
         eyebrow="Skills / Tech Stack"
         title="Une stack moderne, robuste et orientée produit"
@@ -23,12 +23,12 @@ export function SkillsSection() {
         initial="hidden"
         whileInView="show"
         viewport={sectionViewport}
-        className="grid gap-4 md:grid-cols-2 xl:grid-cols-3"
+        className="grid gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3"
       >
         {skillCategories.map((group) => (
           <motion.div key={group.category} variants={fadeUpItem}>
-            <PremiumCard className="h-full border-border/60 bg-gradient-to-b from-card to-card/70 p-5 md:p-6">
-              <div className="mb-4 flex items-center justify-between">
+            <PremiumCard className="h-full border-border/60 bg-gradient-to-b from-card to-card/70 p-4 sm:p-5 md:p-6">
+              <div className="mb-4 flex items-center justify-between gap-3">
                 <h3 className="text-base font-semibold md:text-lg">
                   {group.category}
                 </h3>

@@ -49,7 +49,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative overflow-hidden pt-20 pb-16 md:pt-28 md:pb-24"
+      className="relative overflow-hidden pt-16 pb-12 sm:pt-20 sm:pb-16 md:pt-24 md:pb-20 lg:pt-28 lg:pb-24"
     >
       <div className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-10 left-1/2 h-64 w-64 -translate-x-1/2 rounded-full bg-primary/25 blur-3xl" />
@@ -57,23 +57,23 @@ export function HeroSection() {
       </div>
 
       <motion.div
-        className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12"
+        className="grid items-center gap-8 md:gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12"
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
         viewport={sectionViewport}
       >
-        <div className="space-y-8">
+        <div className="space-y-6 sm:space-y-7 md:space-y-8">
           <motion.span
             variants={fadeUpItem}
-            className="inline-flex rounded-full border border-primary/35 bg-primary/10 px-4 py-1 text-[0.68rem] font-medium tracking-[0.24em] text-primary uppercase"
+            className="inline-flex max-w-full rounded-full border border-primary/35 bg-primary/10 px-3 py-1 text-[0.62rem] leading-tight font-medium tracking-[0.18em] text-primary uppercase sm:px-4 sm:text-[0.68rem] sm:tracking-[0.24em]"
           >
             Développeur Full-Stack moderne
           </motion.span>
 
           <motion.h1
             variants={fadeUpItem}
-            className="max-w-3xl text-4xl font-semibold tracking-tight text-balance md:text-6xl"
+            className="max-w-3xl text-3xl leading-tight font-semibold tracking-tight text-balance sm:text-4xl md:text-5xl lg:text-6xl"
           >
             Je conçois des applications web et mobiles haut de gamme avec
             Next.js, React.js et React Native.
@@ -81,7 +81,7 @@ export function HeroSection() {
 
           <motion.p
             variants={fadeUpItem}
-            className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
+            className="max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg"
           >
             Développeur spécialisé dans la création de produits professionnels,
             élégants et performants. J&apos;accompagne les marques et startups
@@ -93,7 +93,7 @@ export function HeroSection() {
             {techStack.map((tech) => (
               <span
                 key={tech}
-                className="rounded-full border border-border/80 bg-card/65 px-3.5 py-1.5 text-xs font-medium text-muted-foreground backdrop-blur"
+                className="rounded-full border border-border/80 bg-card/65 px-3 py-1.5 text-[0.7rem] font-medium text-muted-foreground backdrop-blur sm:px-3.5 sm:text-xs"
               >
                 {tech}
               </span>
@@ -102,26 +102,26 @@ export function HeroSection() {
 
           <motion.div
             variants={fadeUpItem}
-            className="flex flex-wrap gap-3 pt-2"
+            className="flex flex-col gap-3 pt-1 sm:flex-row sm:flex-wrap sm:pt-2"
           >
             <MotionLink
               href="#projects"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-[0_10px_24px_rgb(0,0,0,0.14)]"
+              className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-medium text-primary-foreground shadow-[0_10px_24px_rgb(0,0,0,0.14)] sm:w-auto sm:px-6"
             >
               Voir mes projets <ArrowUpRight className="size-4" />
             </MotionLink>
             <MotionLink
               href="#contact"
-              className="inline-flex items-center rounded-full border border-border bg-card/85 px-6 py-3 text-sm font-medium backdrop-blur hover:border-primary/40"
+              className="inline-flex w-full items-center justify-center rounded-full border border-border bg-card/85 px-5 py-3 text-sm font-medium backdrop-blur hover:border-primary/40 sm:w-auto sm:px-6"
             >
               Démarrer un projet
             </MotionLink>
           </motion.div>
         </div>
 
-        <motion.aside variants={fadeUpItem} className="relative">
+        <motion.aside variants={fadeUpItem} className="relative mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none">
           <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-2xl" />
-          <div className="space-y-4 rounded-[1.75rem] border border-white/10 bg-black/45 p-4 shadow-2xl backdrop-blur-md md:p-5">
+          <div className="space-y-4 rounded-[1.75rem] border border-white/10 bg-black/45 p-3.5 shadow-2xl backdrop-blur-md sm:p-4 md:p-5">
             {serviceCards.map(({ icon: Icon, title, detail }, index) => (
               <motion.div
                 key={title}
@@ -147,7 +147,7 @@ export function HeroSection() {
               </motion.div>
             ))}
 
-            <div className="grid grid-cols-3 gap-2 pt-1">
+            <div className="grid grid-cols-3 gap-1.5 pt-1 sm:gap-2">
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
