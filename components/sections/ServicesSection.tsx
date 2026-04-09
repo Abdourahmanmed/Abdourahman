@@ -62,7 +62,7 @@ const serviceCards = [
 export function ServicesSection() {
   return (
     <AnimatedSection id="services" className="py-12 sm:py-14 md:py-20 lg:py-24">
-      <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/75 p-4 shadow-[0_20px_60px_-30px_rgb(0,0,0,0.25)] backdrop-blur-md sm:p-6 md:p-8 lg:p-9">
+      <div className="surface-panel-strong relative overflow-hidden rounded-3xl p-4 sm:p-6 md:p-8 lg:p-9">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_8%_0%,color-mix(in_oklch,var(--primary)_14%,transparent)_0%,transparent_42%),radial-gradient(circle_at_90%_100%,color-mix(in_oklch,var(--accent)_16%,transparent)_0%,transparent_36%)]" />
 
         <SectionHeading
@@ -88,7 +88,7 @@ export function ServicesSection() {
                 variants={fadeUpItem}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.24 }}
-                className="group relative overflow-hidden rounded-2xl border border-border/70 bg-background/80 p-5 shadow-[0_10px_35px_-20px_rgb(0,0,0,0.35)]"
+                className="group surface-panel relative overflow-hidden rounded-2xl bg-background/74 p-5"
               >
                 <div
                   className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${service.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
@@ -101,7 +101,7 @@ export function ServicesSection() {
                 <h3 className="text-lg leading-snug font-semibold text-foreground">
                   {service.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <p className="text-refined mt-2 text-sm leading-relaxed">
                   {service.description}
                 </p>
               </motion.article>
@@ -111,7 +111,7 @@ export function ServicesSection() {
 
         <motion.div
           variants={fadeUpItem}
-          className="mt-8 rounded-2xl border border-border/70 bg-background/70 p-4 md:mt-10 md:p-5"
+          className="surface-panel mt-8 rounded-2xl bg-background/68 p-4 md:mt-10 md:p-5"
         >
           <p className="text-sm font-medium text-foreground md:text-base">
             Vous avez une idée, un produit à lancer ou une interface à faire

@@ -30,7 +30,7 @@ export function ProjectsSection() {
           <motion.div key={project.title} variants={fadeUpItem}>
             <PremiumCard className="flex h-full flex-col">
               <h3 className="text-lg font-semibold">{project.title}</h3>
-              <p className="mt-2 text-sm text-muted-foreground">
+              <p className="text-refined mt-2 text-sm">
                 {project.description}
               </p>
 
@@ -38,7 +38,7 @@ export function ProjectsSection() {
                 {project.stack.map((item) => (
                   <span
                     key={item}
-                    className="rounded-full bg-secondary px-3 py-1 text-xs text-secondary-foreground transition-colors duration-300 hover:bg-secondary/80"
+                    className="rounded-full border border-border/70 bg-secondary/80 px-3 py-1 text-xs text-secondary-foreground shadow-[inset_0_1px_0_rgb(255_255_255/0.35)] transition-colors duration-300 hover:bg-secondary"
                   >
                     {item}
                   </span>

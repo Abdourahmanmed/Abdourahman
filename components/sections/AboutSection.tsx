@@ -37,7 +37,7 @@ export function AboutSection() {
       whileInView="show"
       viewport={sectionViewport}
     >
-      <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-card/90 to-card/60 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur sm:p-6 md:p-8 lg:p-10">
+      <div className="surface-panel-strong soft-border rounded-3xl bg-gradient-to-b from-card/90 to-card/64 p-4 sm:p-6 md:p-8 lg:p-10">
         <motion.div variants={fadeUpItem}>
           <SectionHeading
             eyebrow="À propos"
@@ -50,7 +50,7 @@ export function AboutSection() {
         <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-end">
           <motion.p
             variants={fadeUpItem}
-            className="max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg"
+            className="text-refined max-w-2xl text-base leading-relaxed md:text-lg"
           >
             Mon positionnement est simple : livrer des solutions élégantes qui
             inspirent confiance, servent vos objectifs business et restent
@@ -61,7 +61,7 @@ export function AboutSection() {
 
           <motion.div
             variants={fadeUpItem}
-            className="rounded-2xl border border-primary/20 bg-primary/10 p-5"
+            className="rounded-2xl border border-primary/24 bg-primary/10 p-5 shadow-[inset_0_1px_0_rgb(255_255_255/0.4)]"
           >
             <p className="text-xs tracking-[0.16em] text-primary uppercase">
               Positionnement
@@ -86,7 +86,7 @@ export function AboutSection() {
                 variants={fadeUpItem}
                 whileHover={{ y: -4 }}
                 transition={{ duration: 0.24 }}
-                className="group rounded-2xl border border-border/70 bg-card/80 p-5 shadow-[0_8px_25px_rgba(0,0,0,0.25)]"
+                className="surface-panel group rounded-2xl p-5"
               >
                 <div className="mb-4 inline-flex rounded-xl border border-primary/20 bg-primary/10 p-2.5 text-primary transition-colors duration-300 group-hover:border-primary/40">
                   <Icon className="size-5" />
@@ -94,7 +94,7 @@ export function AboutSection() {
                 <h3 className="text-lg font-semibold tracking-tight">
                   {block.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <p className="text-refined mt-2 text-sm leading-relaxed">
                   {block.description}
                 </p>
               </motion.article>
