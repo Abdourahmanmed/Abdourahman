@@ -9,12 +9,17 @@ import { SkillsSection } from "@/components/sections/skills-section"
 export default function Page() {
   return (
     <SiteShell>
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ServicesSection />
-      <ProjectsSection />
-      <ContactSection />
+      <div className="relative isolate pb-20 md:pb-28">
+        <HeroSection />
+
+        <div className="space-y-6 md:space-y-8 lg:space-y-10">
+          <AboutSection />
+          <SkillsSection />
+          <ServicesSection />
+          <ProjectsSection />
+          <ContactSection />
+        </div>
+      </div>
     </SiteShell>
   )
 }
