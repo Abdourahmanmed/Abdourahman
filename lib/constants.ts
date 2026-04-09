@@ -13,9 +13,16 @@ export type NavigationItem = {
   href: string
 }
 
+export type SkillCategory = "Frontend" | "Backend" | "Mobile" | "Database" | "Design & Tools"
+
 export type SkillItem = {
   name: string
-  category: "Frontend" | "Backend" | "Mobile" | "Tooling"
+}
+
+export type SkillCategoryGroup = {
+  category: SkillCategory
+  description: string
+  skills: SkillItem[]
 }
 
 export type ServiceItem = {
@@ -45,17 +52,39 @@ export const navigation: NavigationItem[] = [
   { label: "Contact", href: "#contact" },
 ]
 
-export const skills: SkillItem[] = [
-  { name: "Next.js App Router", category: "Frontend" },
-  { name: "React.js", category: "Frontend" },
-  { name: "TypeScript", category: "Frontend" },
-  { name: "Tailwind CSS", category: "Frontend" },
-  { name: "Node.js", category: "Backend" },
-  { name: "REST API", category: "Backend" },
-  { name: "React Native", category: "Mobile" },
-  { name: "Expo", category: "Mobile" },
-  { name: "Git & GitHub", category: "Tooling" },
-  { name: "Figma", category: "Tooling" },
+export const skillCategories: SkillCategoryGroup[] = [
+  {
+    category: "Frontend",
+    description: "Interfaces web modernes, performantes et évolutives.",
+    skills: [
+      { name: "Next.js" },
+      { name: "React.js" },
+      { name: "TypeScript" },
+      { name: "JavaScript" },
+      { name: "Tailwind CSS" },
+      { name: "shadcn/ui" },
+    ],
+  },
+  {
+    category: "Backend",
+    description: "Architecture API fiable et logique métier robuste.",
+    skills: [{ name: "Node.js" }, { name: "Express.js" }, { name: "Prisma" }],
+  },
+  {
+    category: "Mobile",
+    description: "Applications mobiles fluides avec base React Native.",
+    skills: [{ name: "React Native" }],
+  },
+  {
+    category: "Database",
+    description: "Gestion de données relationnelles et modélisation propre.",
+    skills: [{ name: "PostgreSQL" }],
+  },
+  {
+    category: "Design & Tools",
+    description: "Collaboration produit et workflow pro en équipe.",
+    skills: [{ name: "Figma" }, { name: "Git / GitHub" }],
+  },
 ]
 
 export const services: ServiceItem[] = [

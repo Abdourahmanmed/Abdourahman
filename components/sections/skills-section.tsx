@@ -1,27 +1,66 @@
+"use client"
+
+import { motion } from "framer-motion"
+
 import { AnimatedSection } from "@/components/ui/animated-section"
+import { PremiumCard } from "@/components/ui/premium-card"
 import { SectionHeading } from "@/components/ui/section-heading"
-import { skills } from "@/lib/constants"
+import { TechBadge } from "@/components/ui/tech-badge"
+import { skillCategories } from "@/lib/constants"
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+}
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 },
+}
 
 export function SkillsSection() {
   return (
     <AnimatedSection id="skills" className="py-16 md:py-20">
       <SectionHeading
-        eyebrow="Compétences"
-        title="Stack moderne et maîtrisée"
-        description="Du frontend à l'expérience mobile, avec une approche robuste, scalable et orientée performance."
+        eyebrow="Skills / Tech Stack"
+        title="Une stack moderne, robuste et orientée produit"
+        description="Expertise full-stack et mobile avec des choix techniques fiables pour livrer des produits performants, maintenables et premium."
       />
 
-      <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-        {skills.map((skill) => (
-          <div
-            key={skill.name}
-            className="rounded-xl border border-border/70 bg-card px-4 py-3 transition-colors hover:border-primary/40"
-          >
-            <p className="text-sm font-medium">{skill.name}</p>
-            <p className="text-xs text-muted-foreground">{skill.category}</p>
-          </div>
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.2 }}
+        className="grid gap-4 md:grid-cols-2 xl:grid-cols-3"
+      >
+        {skillCategories.map((group) => (
+          <motion.div key={group.category} variants={cardVariants} transition={{ duration: 0.4, ease: "easeOut" }}>
+            <PremiumCard className="h-full border-border/60 bg-gradient-to-b from-card to-card/70 p-5 md:p-6">
+              <div className="mb-4 flex items-center justify-between">
+                <h3 className="text-base font-semibold md:text-lg">{group.category}</h3>
+                <span className="text-xs text-muted-foreground">{group.skills.length} tech</span>
+              </div>
+
+              <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{group.description}</p>
+
+              <div className="flex flex-wrap gap-2">
+                {group.skills.map((skill) => (
+                  <motion.div key={skill.name} whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+                    <TechBadge label={skill.name} />
+                  </motion.div>
+                ))}
+              </div>
+            </PremiumCard>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </AnimatedSection>
   )
 }
