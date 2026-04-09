@@ -3,7 +3,7 @@ import { AboutSection } from "@/components/sections/AboutSection"
 import { ContactSection } from "@/components/sections/contact-section"
 import { HeroSection } from "@/components/sections/HeroSection"
 import { ProjectsSection } from "@/components/sections/projects-section"
-import { ServicesSection } from "@/components/sections/services-section"
+import { ServicesSection } from "@/components/sections/ServicesSection"
 import { SkillsSection } from "@/components/sections/skills-section"
 
 export default function Page() {
