@@ -6,23 +6,8 @@ import { AnimatedSection } from "@/components/ui/animated-section"
 import { PremiumCard } from "@/components/ui/premium-card"
 import { SectionHeading } from "@/components/ui/section-heading"
 import { TechBadge } from "@/components/ui/tech-badge"
+import { fadeUpItem, sectionViewport, staggerContainer } from "@/lib/motion"
 import { skillCategories } from "@/lib/constants"
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.1,
-    },
-  },
-}
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0 },
-}
 
 export function SkillsSection() {
   return (
@@ -34,25 +19,35 @@ export function SkillsSection() {
       />
 
       <motion.div
-        variants={containerVariants}
+        variants={staggerContainer}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={sectionViewport}
         className="grid gap-4 md:grid-cols-2 xl:grid-cols-3"
       >
         {skillCategories.map((group) => (
-          <motion.div key={group.category} variants={cardVariants} transition={{ duration: 0.4, ease: "easeOut" }}>
+          <motion.div key={group.category} variants={fadeUpItem}>
             <PremiumCard className="h-full border-border/60 bg-gradient-to-b from-card to-card/70 p-5 md:p-6">
               <div className="mb-4 flex items-center justify-between">
-                <h3 className="text-base font-semibold md:text-lg">{group.category}</h3>
-                <span className="text-xs text-muted-foreground">{group.skills.length} tech</span>
+                <h3 className="text-base font-semibold md:text-lg">
+                  {group.category}
+                </h3>
+                <span className="text-xs text-muted-foreground">
+                  {group.skills.length} tech
+                </span>
               </div>
 
-              <p className="mb-5 text-sm leading-relaxed text-muted-foreground">{group.description}</p>
+              <p className="mb-5 text-sm leading-relaxed text-muted-foreground">
+                {group.description}
+              </p>
 
               <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
-                  <motion.div key={skill.name} whileHover={{ y: -2 }} transition={{ duration: 0.2 }}>
+                  <motion.div
+                    key={skill.name}
+                    whileHover={{ y: -2 }}
+                    transition={{ duration: 0.18 }}
+                  >
                     <TechBadge label={skill.name} />
                   </motion.div>
                 ))}
