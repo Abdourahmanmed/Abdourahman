@@ -61,19 +61,19 @@ const serviceCards = [
 
 export function ServicesSection() {
   return (
-    <AnimatedSection id="services" className="py-18 md:py-24">
-      <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/75 p-6 shadow-[0_20px_60px_-30px_rgb(0,0,0,0.25)] backdrop-blur-md md:p-9">
+    <AnimatedSection id="services" className="py-12 sm:py-14 md:py-20 lg:py-24">
+      <div className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/75 p-4 shadow-[0_20px_60px_-30px_rgb(0,0,0,0.25)] backdrop-blur-md sm:p-6 md:p-8 lg:p-9">
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_8%_0%,color-mix(in_oklch,var(--primary)_14%,transparent)_0%,transparent_42%),radial-gradient(circle_at_90%_100%,color-mix(in_oklch,var(--accent)_16%,transparent)_0%,transparent_36%)]" />
 
         <SectionHeading
           eyebrow="Services premium"
           title="Un partenaire produit pour transformer votre portfolio en machine à conversion"
           description="J'accompagne vos besoins web, mobile et design produit avec une approche orientée impact business, clarté UX et performance technique."
-          className="mb-8 md:mb-12"
+          className="mb-6 sm:mb-8 md:mb-12"
         />
 
         <motion.div
-          className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
+          className="grid gap-4 sm:gap-5 sm:grid-cols-2 xl:grid-cols-3"
           variants={staggerContainer}
           initial="hidden"
           whileInView="show"

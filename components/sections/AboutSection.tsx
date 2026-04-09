@@ -31,19 +31,19 @@ export function AboutSection() {
   return (
     <motion.section
       id="about"
-      className="scroll-mt-32 py-16 md:py-24"
+      className="scroll-mt-28 py-12 sm:py-14 md:scroll-mt-32 md:py-20 lg:py-24"
       variants={staggerContainer}
       initial="hidden"
       whileInView="show"
       viewport={sectionViewport}
     >
-      <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-card/90 to-card/60 p-6 shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur md:p-10">
+      <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-card/90 to-card/60 p-4 shadow-[0_18px_60px_rgba(0,0,0,0.35)] backdrop-blur sm:p-6 md:p-8 lg:p-10">
         <motion.div variants={fadeUpItem}>
           <SectionHeading
             eyebrow="À propos"
             title="Un partenaire technique moderne, fiable et orienté résultats"
             description="Je construis des produits digitaux premium avec une approche rigoureuse : vision produit claire, exécution soignée et standards de qualité élevés à chaque étape."
-            className="mb-8"
+            className="mb-6 sm:mb-8"
           />
         </motion.div>
 
@@ -75,7 +75,7 @@ export function AboutSection() {
 
         <motion.div
           variants={staggerContainer}
-          className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3"
+          className="mt-8 grid gap-4 sm:mt-10 md:grid-cols-2 xl:grid-cols-3"
         >
           {valueBlocks.map((block) => {
             const Icon = block.icon

@@ -9,7 +9,7 @@ export function SiteShell({ children }: SiteShellProps) {
   return (
     <div className="relative min-h-svh overflow-x-clip bg-background">
       <SiteHeader />
-      <main className="mx-auto w-full max-w-6xl px-6">{children}</main>
+      <main className="mx-auto w-full max-w-[88rem] px-4 sm:px-6 lg:px-8 2xl:px-12">{children}</main>
       <SiteFooter />
     </div>
   )

@@ -59,24 +59,26 @@ export function SiteHeader() {
 
   return (
     <motion.header
-      className="sticky top-3 z-50 px-4"
+      className="sticky top-2 z-50 px-3 sm:top-3 sm:px-4"
       animate={{ y: isScrolled ? 0 : 2 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
     >
       <div
         className={cn(
-          "mx-auto w-full max-w-6xl rounded-2xl border bg-background/55 px-4 backdrop-blur-xl transition-all duration-300 sm:px-6",
+          "mx-auto w-full max-w-[88rem] rounded-2xl border bg-background/55 px-3.5 backdrop-blur-xl transition-all duration-300 sm:px-6",
           isScrolled
             ? "border-border/70 shadow-[0_8px_30px_rgb(0_0_0/0.12)]"
             : "border-border/40 shadow-[0_6px_24px_rgb(0_0_0/0.06)]"
         )}
       >
-        <div className="flex h-16 items-center justify-between gap-3">
-          <Link href="#hero" className="group inline-flex items-center gap-2.5">
-            <span className="inline-flex size-8 items-center justify-center rounded-full bg-primary/15 text-primary ring-1 ring-primary/30">
-              <Sparkles className="size-4" />
+        <div className="flex h-15 items-center justify-between gap-2 sm:h-16 sm:gap-3">
+          <Link href="#hero" className="group inline-flex min-w-0 items-center gap-2 sm:gap-2.5">
+            <span className="inline-flex size-7 shrink-0 items-center justify-center rounded-full bg-primary/15 text-primary ring-1 ring-primary/30 sm:size-8">
+              <Sparkles className="size-3.5 sm:size-4" />
             </span>
-            <span className="text-sm font-semibold tracking-[0.18em] uppercase">ABDOURAHMAN</span>
+            <span className="truncate text-[0.68rem] font-semibold tracking-[0.14em] uppercase sm:text-sm sm:tracking-[0.18em]">
+              ABDOURAHMAN
+            </span>
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">
@@ -116,7 +118,7 @@ export function SiteHeader() {
           <Button
             size="icon"
             variant="ghost"
-            className="size-10 rounded-full lg:hidden"
+            className="size-9 rounded-full lg:hidden sm:size-10"
             aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((current) => !current)}
@@ -133,7 +135,7 @@ export function SiteHeader() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="mx-auto mt-2 w-full max-w-6xl rounded-2xl border border-border/60 bg-background/90 p-3 shadow-2xl backdrop-blur-2xl lg:hidden"
+            className="mx-auto mt-2 w-full max-w-[88rem] rounded-2xl border border-border/60 bg-background/90 p-3 shadow-2xl backdrop-blur-2xl lg:hidden"
           >
             <nav className="grid gap-1">
               {navigation.map((item, index) => {

@@ -12,7 +12,7 @@ import { projects } from "@/lib/constants"
 
 export function ProjectsSection() {
   return (
-    <AnimatedSection id="projects" className="py-16 md:py-20">
+    <AnimatedSection id="projects" className="py-12 sm:py-14 md:py-18 lg:py-20">
       <SectionHeading
         eyebrow="Projets"
         title="Réalisations sélectionnées"
@@ -20,7 +20,7 @@ export function ProjectsSection() {
       />
 
       <motion.div
-        className="grid gap-4 md:grid-cols-2 lg:grid-cols-3"
+        className="grid gap-4 sm:gap-5 md:grid-cols-2 lg:grid-cols-3"
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"

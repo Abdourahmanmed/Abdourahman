@@ -53,9 +53,9 @@ const contactLinks = [
 
 export function ContactSection() {
   return (
-    <AnimatedSection id="contact" className="py-18 md:py-24">
+    <AnimatedSection id="contact" className="py-12 sm:py-14 md:py-20 lg:py-24">
       <motion.div
-        className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/80 p-6 shadow-[0_22px_70px_-35px_rgb(0,0,0,0.45)] backdrop-blur-md md:p-10"
+        className="relative overflow-hidden rounded-3xl border border-border/70 bg-card/80 p-4 shadow-[0_22px_70px_-35px_rgb(0,0,0,0.45)] backdrop-blur-md sm:p-6 md:p-8 lg:p-10"
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
@@ -63,24 +63,24 @@ export function ContactSection() {
       >
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_10%_10%,color-mix(in_oklch,var(--primary)_22%,transparent)_0%,transparent_38%),radial-gradient(circle_at_85%_92%,color-mix(in_oklch,var(--accent)_20%,transparent)_0%,transparent_40%)]" />
 
-        <div className="grid items-center gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-10">
+        <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-10">
           <motion.div variants={fadeUpItem}>
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold tracking-wide text-primary uppercase">
               <Sparkles className="size-3.5" /> Disponibilité limitée
             </p>
 
-            <h2 className="mt-4 max-w-2xl text-3xl font-semibold tracking-tight text-balance text-foreground md:text-4xl lg:text-5xl">
+            <h2 className="mt-4 max-w-2xl text-2xl leading-tight font-semibold tracking-tight text-balance text-foreground sm:text-3xl md:text-4xl lg:text-5xl">
               Construisons ensemble une expérience digitale qui inspire
               confiance et convertit.
             </h2>
 
-            <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
+            <p className="mt-4 max-w-xl text-sm leading-relaxed text-muted-foreground sm:text-base md:text-lg">
               Vous avez un projet web, SaaS ou mobile ambitieux ? Parlons de vos
               objectifs et transformons-les en un produit premium, performant et
               prêt à scaler.
             </p>
 
-            <div className="mt-7 flex flex-wrap gap-3">
+            <div className="mt-6 grid gap-3 sm:mt-7 sm:grid-cols-2">
               {contactLinks.map((link, index) => {
                 const Icon = link.icon
 
@@ -100,7 +100,7 @@ export function ContactSection() {
                       asChild
                       size="lg"
                       variant={link.variant}
-                      className="h-10 rounded-xl px-4 text-sm"
+                      className="h-10 w-full rounded-xl px-4 text-sm"
                     >
                       <a
                         href={link.href}
@@ -148,7 +148,7 @@ export function ContactSection() {
                     <p className="text-sm font-medium text-foreground">
                       {link.label}
                     </p>
-                    <p className="text-xs text-muted-foreground">
+                    <p className="max-w-[13rem] text-xs break-words text-muted-foreground sm:max-w-[15rem]">
                       {link.value}
                     </p>
                   </div>
