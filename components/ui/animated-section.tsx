@@ -1,9 +1,10 @@
 "use client"
 
-import { motion } from "framer-motion"
+import { motion, useReducedMotion } from "framer-motion"
 
-import { cn } from "@/lib/utils"
 import { useSectionInView } from "@/hooks/use-section-in-view"
+import { sectionReveal, sectionViewport } from "@/lib/motion"
+import { cn } from "@/lib/utils"
 
 type AnimatedSectionProps = {
   id: string
@@ -11,16 +12,22 @@ type AnimatedSectionProps = {
   children: React.ReactNode
 }
 
-export function AnimatedSection({ id, className, children }: AnimatedSectionProps) {
-  const { ref, inView } = useSectionInView()
+export function AnimatedSection({
+  id,
+  className,
+  children,
+}: AnimatedSectionProps) {
+  const { ref } = useSectionInView()
+  const prefersReducedMotion = useReducedMotion()
 
   return (
     <motion.section
       id={id}
       ref={ref}
-      initial={{ opacity: 0, y: 36 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      variants={prefersReducedMotion ? undefined : sectionReveal}
+      initial={prefersReducedMotion ? false : "hidden"}
+      whileInView={prefersReducedMotion ? undefined : "show"}
+      viewport={prefersReducedMotion ? undefined : sectionViewport}
       className={cn("scroll-mt-32", className)}
     >
       {children}

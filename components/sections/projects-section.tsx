@@ -18,7 +18,9 @@ export function ProjectsSection() {
         {projects.map((project) => (
           <PremiumCard key={project.title} className="flex h-full flex-col">
             <h3 className="text-lg font-semibold">{project.title}</h3>
-            <p className="mt-2 text-sm text-muted-foreground">{project.description}</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {project.description}
+            </p>
 
             <div className="mt-4 flex flex-wrap gap-2">
               {project.stack.map((item) => (
@@ -32,7 +34,7 @@ export function ProjectsSection() {
             </div>
 
             <a
-              href={project.href}
+              href={project.projectUrl}
               className="mt-5 inline-flex items-center gap-2 text-sm text-primary hover:underline"
             >
               Voir le projet <ExternalLink className="size-4" />

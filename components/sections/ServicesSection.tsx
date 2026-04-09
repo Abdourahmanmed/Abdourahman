@@ -12,6 +12,7 @@ import {
 
 import { AnimatedSection } from "@/components/ui/animated-section"
 import { SectionHeading } from "@/components/ui/section-heading"
+import { fadeUpItem, sectionViewport, staggerContainer } from "@/lib/motion"
 
 const serviceCards = [
   {
@@ -58,19 +59,6 @@ const serviceCards = [
   },
 ] as const
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 18 },
-  visible: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      delay: 0.08 * index,
-      ease: "easeOut",
-    },
-  }),
-}
-
 export function ServicesSection() {
   return (
     <AnimatedSection id="services" className="py-18 md:py-24">
@@ -84,43 +72,56 @@ export function ServicesSection() {
           className="mb-8 md:mb-12"
         />
 
-        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          {serviceCards.map((service, index) => {
+        <motion.div
+          className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={sectionViewport}
+        >
+          {serviceCards.map((service) => {
             const Icon = service.icon
 
             return (
               <motion.article
                 key={service.title}
-                custom={index}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.24 }}
-                whileHover={{ y: -5, scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 140, damping: 18 }}
+                variants={fadeUpItem}
+                whileHover={{ y: -4 }}
+                transition={{ duration: 0.24 }}
                 className="group relative overflow-hidden rounded-2xl border border-border/70 bg-background/80 p-5 shadow-[0_10px_35px_-20px_rgb(0,0,0,0.35)]"
               >
                 <div
                   className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${service.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
                 />
 
-                <div className="mb-4 inline-flex rounded-xl border border-primary/20 bg-primary/10 p-2.5 text-primary transition-all duration-300 group-hover:scale-105 group-hover:border-primary/40 group-hover:bg-primary/15">
+                <div className="mb-4 inline-flex rounded-xl border border-primary/20 bg-primary/10 p-2.5 text-primary transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/15">
                   <Icon className="size-5" />
                 </div>
 
-                <h3 className="text-lg font-semibold leading-snug text-foreground">{service.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{service.description}</p>
+                <h3 className="text-lg leading-snug font-semibold text-foreground">
+                  {service.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {service.description}
+                </p>
               </motion.article>
             )
           })}
-        </div>
+        </motion.div>
 
-        <div className="mt-8 rounded-2xl border border-border/70 bg-background/70 p-4 md:mt-10 md:p-5">
+        <motion.div
+          variants={fadeUpItem}
+          className="mt-8 rounded-2xl border border-border/70 bg-background/70 p-4 md:mt-10 md:p-5"
+        >
           <p className="text-sm font-medium text-foreground md:text-base">
-            Vous avez une idée, un produit à lancer ou une interface à faire évoluer ?
-            <span className="text-primary"> Je peux intervenir de la stratégie à l&apos;exécution.</span>
+            Vous avez une idée, un produit à lancer ou une interface à faire
+            évoluer ?
+            <span className="text-primary">
+              {" "}
+              Je peux intervenir de la stratégie à l&apos;exécution.
+            </span>
           </p>
-        </div>
+        </motion.div>
       </div>
     </AnimatedSection>
   )
