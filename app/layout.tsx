@@ -44,7 +44,7 @@ export default function RootLayout({
     <html
       lang="fr"
       suppressHydrationWarning
-      className={cn("h-full scroll-smooth antialiased", fontSans.variable, fontDisplay.variable)}
+      className={cn("h-full antialiased", fontSans.variable, fontDisplay.variable)}
     >
       <body className="relative min-h-screen bg-background font-sans text-foreground transition-colors duration-500 ease-out">
         <div aria-hidden className="page-bg" />
