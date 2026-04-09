@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowUpRight, Github, Linkedin, Mail, MessageCircleMore, Sparkles } from "lucide-react"
+import { ArrowUpRight, Code2, Briefcase, Mail, MessageCircleMore, Sparkles } from "lucide-react"
 
 import { AnimatedSection } from "@/components/ui/animated-section"
 import { Button } from "@/components/ui/button"
@@ -18,14 +18,14 @@ const contactLinks = [
     label: "LinkedIn",
     value: "linkedin.com/in/votreprofil",
     href: "https://www.linkedin.com",
-    icon: Linkedin,
+    icon: Briefcase,
     variant: "outline" as const,
   },
   {
     label: "GitHub",
     value: "github.com/votreprofil",
     href: "https://github.com",
-    icon: Github,
+    icon: Code2,
     variant: "outline" as const,
   },
   {
