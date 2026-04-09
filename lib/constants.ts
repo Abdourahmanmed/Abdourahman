@@ -37,11 +37,11 @@ export type SocialLink = {
 }
 
 export const navigation: NavigationItem[] = [
-  { label: "Accueil", href: "#hero" },
-  { label: "À propos", href: "#about" },
-  { label: "Compétences", href: "#skills" },
+  { label: "Home", href: "#hero" },
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
   { label: "Services", href: "#services" },
-  { label: "Projets", href: "#projects" },
+  { label: "Projects", href: "#projects" },
   { label: "Contact", href: "#contact" },
 ]
 

@@ -1,27 +1,176 @@
-import Link from "next/link"
+"use client"
 
+import Link from "next/link"
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion"
+import { ArrowRight, Menu, Sparkles, X } from "lucide-react"
+import { useEffect, useMemo, useState } from "react"
+
+import { Button } from "@/components/ui/button"
 import { navigation } from "@/lib/constants"
+import { cn } from "@/lib/utils"
 
 export function SiteHeader() {
-  return (
-    <header className="sticky top-0 z-40 border-b border-border/60 bg-background/70 backdrop-blur-xl">
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6">
-        <Link href="#hero" className="text-sm font-semibold tracking-[0.2em] uppercase">
-          ABDOURAHMAN
-        </Link>
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState("#hero")
+  const [isScrolled, setIsScrolled] = useState(false)
+  const { scrollY } = useScroll()
 
-        <nav className="hidden items-center gap-6 md:flex">
-          {navigation.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
+  const sectionIds = useMemo(() => navigation.map((item) => item.href.replace("#", "")), [])
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 14)
+  })
+
+  useEffect(() => {
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSection = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+
+        if (visibleSection?.target.id) {
+          setActiveSection(`#${visibleSection.target.id}`)
+        }
+      },
+      {
+        rootMargin: "-35% 0px -50% 0px",
+        threshold: [0.1, 0.25, 0.5, 0.75],
+      }
+    )
+
+    sections.forEach((section) => observer.observe(section))
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section))
+      observer.disconnect()
+    }
+  }, [sectionIds])
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : ""
+    return () => {
+      document.body.style.overflow = ""
+    }
+  }, [isMenuOpen])
+
+  return (
+    <motion.header
+      className="sticky top-3 z-50 px-4"
+      animate={{ y: isScrolled ? 0 : 2 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
+    >
+      <div
+        className={cn(
+          "mx-auto w-full max-w-6xl rounded-2xl border bg-background/55 px-4 backdrop-blur-xl transition-all duration-300 sm:px-6",
+          isScrolled
+            ? "border-border/70 shadow-[0_8px_30px_rgb(0_0_0/0.12)]"
+            : "border-border/40 shadow-[0_6px_24px_rgb(0_0_0/0.06)]"
+        )}
+      >
+        <div className="flex h-16 items-center justify-between gap-3">
+          <Link href="#hero" className="group inline-flex items-center gap-2.5">
+            <span className="inline-flex size-8 items-center justify-center rounded-full bg-primary/15 text-primary ring-1 ring-primary/30">
+              <Sparkles className="size-4" />
+            </span>
+            <span className="text-sm font-semibold tracking-[0.18em] uppercase">ABDOURAHMAN</span>
+          </Link>
+
+          <nav className="hidden items-center gap-1 lg:flex">
+            {navigation.map((item) => {
+              const isActive = activeSection === item.href
+
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={cn(
+                    "relative rounded-full px-3 py-2 text-sm transition-colors",
+                    isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                  )}
+                >
+                  {isActive ? (
+                    <motion.span
+                      layoutId="active-section"
+                      className="absolute inset-0 -z-10 rounded-full border border-primary/30 bg-primary/10"
+                      transition={{ type: "spring", stiffness: 380, damping: 34 }}
+                    />
+                  ) : null}
+                  {item.label}
+                </Link>
+              )
+            })}
+          </nav>
+
+          <div className="hidden items-center gap-2 lg:flex">
+            <Button asChild className="h-10 rounded-full px-5 text-sm">
+              <Link href="#contact">
+                Let&apos;s work together <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+          </div>
+
+          <Button
+            size="icon"
+            variant="ghost"
+            className="size-10 rounded-full lg:hidden"
+            aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={isMenuOpen}
+            onClick={() => setIsMenuOpen((current) => !current)}
+          >
+            {isMenuOpen ? <X className="size-4" /> : <Menu className="size-4" />}
+          </Button>
+        </div>
       </div>
-    </header>
+
+      <AnimatePresence>
+        {isMenuOpen ? (
+          <motion.div
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="mx-auto mt-2 w-full max-w-6xl rounded-2xl border border-border/60 bg-background/90 p-3 shadow-2xl backdrop-blur-2xl lg:hidden"
+          >
+            <nav className="grid gap-1">
+              {navigation.map((item, index) => {
+                const isActive = activeSection === item.href
+
+                return (
+                  <motion.div
+                    key={item.href}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.04 }}
+                  >
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "block rounded-xl px-3 py-2.5 text-sm",
+                        isActive
+                          ? "bg-primary/10 text-foreground ring-1 ring-primary/30"
+                          : "text-muted-foreground hover:bg-muted/60 hover:text-foreground"
+                      )}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                )
+              })}
+            </nav>
+
+            <Button asChild className="mt-3 h-10 w-full rounded-xl text-sm" onClick={() => setIsMenuOpen(false)}>
+              <Link href="#contact">
+                Me contacter <ArrowRight className="size-4" />
+              </Link>
+            </Button>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
+    </motion.header>
   )
 }
