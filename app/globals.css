@@ -177,6 +177,24 @@
     font-feature-settings: "cv11", "ss01", "ss03", "salt";
   }
 
+  /* Lenis : garde le comportement natif propre, sans saut visuel. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+
   body {
     @apply m-0 bg-background text-foreground antialiased;
     font-family: var(--font-sans), "Inter", "Segoe UI", sans-serif;
