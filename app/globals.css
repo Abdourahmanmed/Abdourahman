@@ -267,9 +267,9 @@
     @apply mx-auto w-full max-w-7xl px-6 md:px-10;
   }
 
-  .section-premium {
-    @apply container-premium py-16 md:py-24;
-  }
+ .section-premium {
+  @apply mx-auto w-full max-w-7xl px-6 md:px-10 py-16 md:py-24;
+}
 
   .section-divider {
     border-top: 1px solid color-mix(in oklch, var(--border) 72%, transparent);
