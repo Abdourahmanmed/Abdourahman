@@ -34,8 +34,11 @@ export type ServiceItem = {
 export type ProjectItem = {
   title: string
   description: string
+  category: "SaaS" | "Dashboard" | "Mobile" | "Interface"
   stack: string[]
-  href: string
+  visualLabel: string
+  projectUrl: string
+  codeUrl?: string
 }
 
 export type SocialLink = {
@@ -116,25 +119,42 @@ export const services: ServiceItem[] = [
 
 export const projects: ProjectItem[] = [
   {
-    title: "SaaS Dashboard",
+    title: "OrbitFlow SaaS",
     description:
-      "Dashboard analytique Next.js avec authentification, filtres avancés et graphiques temps réel.",
-    stack: ["Next.js", "TypeScript", "Tailwind", "shadcn/ui"],
-    href: "#",
+      "Plateforme SaaS B2B pour piloter le cycle client, la facturation et l'onboarding avec une UX premium.",
+    category: "SaaS",
+    stack: ["Next.js", "TypeScript", "Prisma", "Stripe", "Tailwind CSS"],
+    visualLabel: "Vue onboarding + analytics",
+    projectUrl: "#",
+    codeUrl: "#",
   },
   {
-    title: "E-commerce Premium",
+    title: "PulseOps Dashboard",
     description:
-      "Boutique moderne orientée conversion, performance Core Web Vitals et checkout simplifié.",
-    stack: ["Next.js", "Stripe", "Framer Motion"],
-    href: "#",
+      "Dashboard décisionnel avec widgets configurables, indicateurs temps réel et exports avancés pour équipes produit.",
+    category: "Dashboard",
+    stack: ["React", "Recharts", "Node.js", "PostgreSQL", "Framer Motion"],
+    visualLabel: "KPIs temps réel",
+    projectUrl: "#",
   },
   {
-    title: "Mobile Fitness App",
+    title: "MoveWell Mobile",
     description:
-      "Application React Native avec suivi d'objectifs, notifications et synchronisation cloud.",
-    stack: ["React Native", "Expo", "Firebase"],
-    href: "#",
+      "Application mobile de coaching avec suivi d'habitudes, programmes personnalisés et notifications intelligentes.",
+    category: "Mobile",
+    stack: ["React Native", "Expo", "Firebase", "TypeScript"],
+    visualLabel: "Parcours mobile iOS/Android",
+    projectUrl: "#",
+    codeUrl: "#",
+  },
+  {
+    title: "Nova UI Experience",
+    description:
+      "Interface moderne pour produit digital haut de gamme avec design system, micro-interactions et parcours conversion optimisé.",
+    category: "Interface",
+    stack: ["Next.js", "shadcn/ui", "Framer Motion", "Figma"],
+    visualLabel: "Prototype interface moderne",
+    projectUrl: "#",
   },
 ]
 
