@@ -12,7 +12,7 @@ import {
 
 import { AnimatedSection } from "@/components/ui/animated-section"
 import { SectionHeading } from "@/components/ui/section-heading"
-import { fadeUpItem, sectionViewport, staggerContainer } from "@/lib/motion"
+import { cardReveal, premiumTransition, sectionViewport, staggerContainer } from "@/lib/motion"
 
 const serviceCards = [
   {
@@ -85,16 +85,16 @@ export function ServicesSection() {
             return (
               <motion.article
                 key={service.title}
-                variants={fadeUpItem}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.24 }}
+                variants={cardReveal}
+                whileHover={{ y: -4, scale: 1.006 }}
+                transition={premiumTransition}
                 className="group surface-panel relative overflow-hidden rounded-2xl bg-background/74 p-5"
               >
                 <div
-                  className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${service.gradient} opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
+                  className={`pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br ${service.gradient} opacity-0 transition-opacity duration-300 group-hover:opacity-100`}
                 />
 
-                <div className="mb-4 inline-flex rounded-xl border border-primary/20 bg-primary/10 p-2.5 text-primary transition-all duration-300 group-hover:border-primary/40 group-hover:bg-primary/15">
+                <div className="mb-4 inline-flex rounded-xl border border-primary/20 bg-primary/10 p-2.5 text-primary transition-all duration-250 group-hover:border-primary/40 group-hover:bg-primary/15">
                   <Icon className="size-5" />
                 </div>
 
@@ -110,7 +110,7 @@ export function ServicesSection() {
         </motion.div>
 
         <motion.div
-          variants={fadeUpItem}
+          variants={cardReveal}
           className="surface-panel mt-8 rounded-2xl bg-background/68 p-4 md:mt-10 md:p-5"
         >
           <p className="text-sm font-medium text-foreground md:text-base">

@@ -7,6 +7,7 @@ import { useEffect, useMemo, useState } from "react"
 
 import { Button } from "@/components/ui/button"
 import { navigation } from "@/lib/constants"
+import { premiumEase } from "@/lib/motion"
 import { cn } from "@/lib/utils"
 
 export function SiteHeader() {
@@ -61,7 +62,7 @@ export function SiteHeader() {
     <motion.header
       className="sticky top-2 z-50 px-3 sm:top-3 sm:px-4"
       animate={{ y: isScrolled ? 0 : 2 }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
+      transition={{ duration: 0.32, ease: premiumEase }}
     >
       <div
         className={cn(
@@ -134,7 +135,7 @@ export function SiteHeader() {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
+            transition={{ duration: 0.22, ease: premiumEase }}
             className="mx-auto mt-2 w-full max-w-[88rem] rounded-2xl border border-border/60 bg-background/90 p-3 shadow-2xl backdrop-blur-2xl lg:hidden"
           >
             <nav className="grid gap-1">
@@ -146,7 +147,7 @@ export function SiteHeader() {
                     key={item.href}
                     initial={{ opacity: 0, x: -8 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.04 }}
+                    transition={{ duration: 0.2, delay: index * 0.03, ease: premiumEase }}
                   >
                     <Link
                       href={item.href}

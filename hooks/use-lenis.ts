@@ -1,6 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
+
 import Lenis from "lenis"
 
 /**
@@ -10,25 +11,35 @@ import Lenis from "lenis"
 export function useLenis() {
   useEffect(() => {
     // Respect des préférences d'accessibilité : pas d'animation forcée.
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches
 
     if (prefersReducedMotion) {
       return
     }
 
     const lenis = new Lenis({
-      // Réglages discrets pour un rendu premium sans effet "lourd".
-      duration: 0.9,
-      lerp: 0.085,
+      lerp: 0.11,
       smoothWheel: true,
-      syncTouch: true,
-      touchMultiplier: 1,
-      wheelMultiplier: 0.95,
+      syncTouch: false,
+      touchMultiplier: 0.95,
+      wheelMultiplier: 0.92,
       gestureOrientation: "vertical",
-      autoRaf: true,
+      autoRaf: false,
     })
 
+    let rafId = 0
+
+    const raf = (time: number) => {
+      lenis.raf(time)
+      rafId = window.requestAnimationFrame(raf)
+    }
+
+    rafId = window.requestAnimationFrame(raf)
+
     return () => {
+      window.cancelAnimationFrame(rafId)
       lenis.destroy()
     }
   }, [])

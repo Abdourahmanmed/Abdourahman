@@ -7,7 +7,7 @@ import { MotionLink } from "@/components/ui/motion-link"
 import {
   fadeUpItem,
   premiumEase,
-  sectionViewport,
+  sectionViewportFast,
   staggerContainer,
 } from "@/lib/motion"
 
@@ -61,7 +61,7 @@ export function HeroSection() {
         variants={staggerContainer}
         initial="hidden"
         whileInView="show"
-        viewport={sectionViewport}
+        viewport={sectionViewportFast}
       >
         <div className="space-y-6 sm:space-y-7 md:space-y-8">
           <motion.span
@@ -119,21 +119,24 @@ export function HeroSection() {
           </motion.div>
         </div>
 
-        <motion.aside variants={fadeUpItem} className="relative mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none">
+        <motion.aside
+          variants={fadeUpItem}
+          className="relative mx-auto w-full max-w-xl lg:mx-0 lg:max-w-none"
+        >
           <div className="absolute -inset-4 -z-10 rounded-[2rem] bg-gradient-to-br from-primary/20 via-transparent to-accent/20 blur-2xl" />
           <div className="surface-panel-strong soft-border space-y-4 rounded-[1.75rem] p-3.5 sm:p-4 md:p-5">
             {serviceCards.map(({ icon: Icon, title, detail }, index) => (
               <motion.div
                 key={title}
-                initial={{ opacity: 0, x: 14 }}
+                initial={{ opacity: 0, x: 10 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={sectionViewport}
+                viewport={sectionViewportFast}
                 transition={{
-                  duration: 0.45,
-                  delay: 0.12 * index,
+                  duration: 0.4,
+                  delay: 0.05 * index,
                   ease: premiumEase,
                 }}
-                className="rounded-2xl border border-border/65 bg-background/55 p-4 transition-all duration-300 hover:border-primary/24 hover:bg-background/72"
+                className="rounded-2xl border border-border/65 bg-background/55 p-4 transition-[border-color,background-color,transform] duration-250 hover:border-primary/24 hover:bg-background/72"
               >
                 <div className="mb-3 inline-flex rounded-lg border border-primary/30 bg-primary/10 p-2 text-primary">
                   <Icon className="size-4" />
@@ -151,12 +154,12 @@ export function HeroSection() {
               {stats.map((stat, index) => (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 8 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={sectionViewport}
+                  viewport={sectionViewportFast}
                   transition={{
-                    duration: 0.35,
-                    delay: 0.18 + index * 0.08,
+                    duration: 0.3,
+                    delay: 0.08 + index * 0.05,
                     ease: premiumEase,
                   }}
                   className="rounded-xl border border-border/70 bg-background/52 px-3 py-2 text-center"

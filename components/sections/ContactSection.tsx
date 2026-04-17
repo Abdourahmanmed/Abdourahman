@@ -1,22 +1,16 @@
 "use client"
 
 import { motion } from "framer-motion"
-import {
-  ArrowUpRight,
-  Briefcase,
-  Code2,
-  Mail,
-  MessageCircleMore,
-  Sparkles,
-} from "lucide-react"
+import { ArrowUpRight, Briefcase, Mail, Sparkles } from "lucide-react"
 
 import { AnimatedSection } from "@/components/ui/animated-section"
 import { Button } from "@/components/ui/button"
 import { MotionLink } from "@/components/ui/motion-link"
 import {
-  fadeUpItem,
+  cardReveal,
   premiumEase,
   sectionViewport,
+  sectionViewportFast,
   staggerContainer,
 } from "@/lib/motion"
 
@@ -35,13 +29,6 @@ const contactLinks = [
     icon: Briefcase,
     variant: "outline" as const,
   },
-  // {
-  //   label: "GitHub",
-  //   value: "github.com/votreprofil",
-  //   href: "https://github.com/Abdourahmanmed",
-  //   icon: Code2,
-  //   variant: "outline" as const,
-  // },
 ]
 
 export function ContactSection() {
@@ -57,7 +44,7 @@ export function ContactSection() {
         <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_10%_10%,color-mix(in_oklch,var(--primary)_22%,transparent)_0%,transparent_38%),radial-gradient(circle_at_85%_92%,color-mix(in_oklch,var(--accent)_20%,transparent)_0%,transparent_40%)]" />
 
         <div className="grid items-center gap-6 sm:gap-8 lg:grid-cols-[1.2fr_1fr] lg:gap-10">
-          <motion.div variants={fadeUpItem}>
+          <motion.div variants={cardReveal}>
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold tracking-wide text-primary uppercase">
               <Sparkles className="size-3.5" /> Disponibilité limitée
             </p>
@@ -80,13 +67,13 @@ export function ContactSection() {
                 return (
                   <motion.div
                     key={link.label}
-                    initial={{ opacity: 0, y: 12 }}
+                    initial={{ opacity: 0, y: 8 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={sectionViewport}
+                    viewport={sectionViewportFast}
                     transition={{
-                      duration: 0.35,
+                      duration: 0.3,
                       ease: premiumEase,
-                      delay: index * 0.08,
+                      delay: index * 0.05,
                     }}
                   >
                     <Button
@@ -113,7 +100,7 @@ export function ContactSection() {
           </motion.div>
 
           <motion.aside
-            variants={fadeUpItem}
+            variants={cardReveal}
             className="surface-panel rounded-2xl bg-background/72 p-5 md:p-6"
           >
             <p className="text-xs font-semibold tracking-[0.12em] text-muted-foreground uppercase">
