@@ -227,9 +227,8 @@ export const projects: ProjectItem[] = [
 
 export const socialLinks: SocialLink[] = [
   { label: "GitHub", href: "https://github.com" },
-  { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Email", href: "mailto:hello@example.com" },
-  { label: "Dribbble", href: "https://dribbble.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/abdourahman-youssouf-mohamed-3600b5226/" },
+  { label: "Email", href: "mailto:abdirahmanmed3533@gmail.com" },
 ]
 
 export const highlightStats = [
