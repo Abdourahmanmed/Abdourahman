@@ -31,14 +31,18 @@ export type ServiceItem = {
   icon: ComponentType<{ className?: string }>
 }
 
+export type ProjectCategory = "Pro" | "Learning Web" | "Learning Mobile"
+
 export type ProjectItem = {
   title: string
+  context?: string
+  type: string
   description: string
-  category: "SaaS" | "Dashboard" | "Mobile" | "Interface"
+  category: ProjectCategory
+  status: string
   stack: string[]
-  visualLabel: string
-  projectUrl: string
-  codeUrl?: string
+  highlights?: string[]
+  projectUrl?: string
 }
 
 export type SocialLink = {
@@ -119,42 +123,105 @@ export const services: ServiceItem[] = [
 
 export const projects: ProjectItem[] = [
   {
-    title: "OrbitFlow SaaS",
+    title: "Gestion de boîtes postales",
+    context: "La Poste de Djibouti",
+    type: "Application métier interne",
     description:
-      "Plateforme SaaS B2B pour piloter le cycle client, la facturation et l'onboarding avec une UX premium.",
-    category: "SaaS",
-    stack: ["Next.js", "TypeScript", "Prisma", "Stripe", "Tailwind CSS"],
-    visualLabel: "Vue onboarding + analytics",
-    projectUrl: "#",
-    codeUrl: "#",
+      "Application de gestion des boîtes postales permettant d'administrer et suivre l'ensemble des boîtes postales de manière centralisée.",
+    category: "Pro",
+    status: "Projet interne",
+    stack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    highlights: ["Gestion", "Suivi", "Administration", "Outil métier"],
   },
   {
-    title: "PulseOps Dashboard",
+    title: "VoxLink",
+    context: "La Poste de Djibouti",
+    type: "CRM centre d'appel sortant",
     description:
-      "Dashboard décisionnel avec widgets configurables, indicateurs temps réel et exports avancés pour équipes produit.",
-    category: "Dashboard",
-    stack: ["React", "Recharts", "Node.js", "PostgreSQL", "Framer Motion"],
-    visualLabel: "KPIs temps réel",
-    projectUrl: "#",
+      "CRM conçu pour la gestion des appels sortants du centre d'appel, avec suivi opérationnel et organisation des interactions.",
+    category: "Pro",
+    status: "Projet interne",
+    stack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    highlights: ["CRM", "Centre d'appel", "Appels sortants", "Productivité"],
   },
   {
-    title: "MoveWell Mobile",
+    title: "EntreVox",
+    context: "La Poste de Djibouti",
+    type: "Plateforme de gestion des appels entrants",
     description:
-      "Application mobile de coaching avec suivi d'habitudes, programmes personnalisés et notifications intelligentes.",
-    category: "Mobile",
-    stack: ["React Native", "Expo", "Firebase", "TypeScript"],
-    visualLabel: "Parcours mobile iOS/Android",
-    projectUrl: "#",
-    codeUrl: "#",
+      "Application de gestion des appels entrants pour les entreprises partenaires du centre d'appel, permettant de traiter les demandes clients, doléances, plaintes et besoins d'information.",
+    category: "Pro",
+    status: "Projet interne",
+    stack: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
+    highlights: ["Appels entrants", "Support client", "Partenaires", "Traitement des demandes"],
   },
   {
-    title: "Nova UI Experience",
+    title: "RRA Connecteur",
+    context: "La Poste de Djibouti",
+    type: "Connecteur / outil métier",
     description:
-      "Interface moderne pour produit digital haut de gamme avec design system, micro-interactions et parcours conversion optimisé.",
-    category: "Interface",
-    stack: ["Next.js", "shadcn/ui", "Framer Motion", "Figma"],
-    visualLabel: "Prototype interface moderne",
-    projectUrl: "#",
+      "Connecteur développé récemment pour répondre à un besoin métier spécifique et améliorer l'intégration entre services.",
+    category: "Pro",
+    status: "Projet interne",
+    stack: ["React", "Next.js", "TypeScript"],
+    highlights: ["Intégration", "Connecteur", "Logique métier"],
+  },
+  {
+    title: "CENI Djibouti",
+    type: "Projet réel",
+    description:
+      "Projet réalisé récemment dans un contexte réel, avec une approche professionnelle orientée exécution et fiabilité.",
+    category: "Pro",
+    status: "Cas réel",
+    stack: ["Next.js", "React", "TypeScript"],
+    highlights: ["Projet réel", "Exécution", "Fiabilité"],
+  },
+  {
+    title: "Safegate",
+    type: "Site vitrine professionnel",
+    description:
+      "Site conçu pour mettre en valeur les services de Safegate et renforcer sa présence en ligne, même si la version finale n'a pas été retenue par l'entreprise.",
+    category: "Learning Web",
+    status: "Projet d'apprentissage / cas client non retenu",
+    stack: ["Next.js", "React", "Tailwind CSS"],
+    highlights: ["Site vitrine", "Services", "Présence en ligne"],
+  },
+  {
+    title: "Freegate",
+    type: "Plateforme web pour importateurs",
+    description:
+      "Plateforme web conçue pour les professionnels de l'importation, avec mise en avant de services liés au financement, à l'entreposage, à la publication d'annonces de marchandises, au transport, aux formalités administratives, au suivi des commandes et au support client personnalisé.",
+    category: "Learning Web",
+    status: "Projet d'apprentissage",
+    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    highlights: ["Importation", "Logistique", "Financement", "Annonces", "Suivi", "Support"],
+  },
+  {
+    title: "Todo List Mobile",
+    type: "Application mobile",
+    description:
+      "Application mobile de gestion de tâches réalisée durant l'apprentissage, avec organisation simple et expérience fluide.",
+    category: "Learning Mobile",
+    status: "Projet d'apprentissage",
+    stack: ["React Native", "Expo", "TypeScript"],
+  },
+  {
+    title: "Wallet Manager",
+    type: "Application mobile",
+    description:
+      "Application mobile de suivi des dépenses et de gestion personnelle de l'argent, permettant de visualiser ce qui a été dépensé, ce qui reste et où l'argent a été utilisé.",
+    category: "Learning Mobile",
+    status: "Projet d'apprentissage",
+    stack: ["React Native", "Expo", "TypeScript"],
+  },
+  {
+    title: "Movies App",
+    type: "Application mobile",
+    description:
+      "Application mobile affichant des films et séries avec détails, favoris et navigation par contenu.",
+    category: "Learning Mobile",
+    status: "Projet d'apprentissage",
+    stack: ["React Native", "Expo", "TypeScript"],
   },
 ]
 
