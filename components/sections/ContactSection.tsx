@@ -23,32 +23,25 @@ import {
 const contactLinks = [
   {
     label: "Email",
-    value: "hello@example.com",
-    href: "mailto:hello@example.com",
+    value: "abdirahmanmed3533@gmail.com",
+    href: "mailto:abdirahmanmed3533@gmail.com",
     icon: Mail,
     variant: "default" as const,
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/votreprofil",
-    href: "https://www.linkedin.com",
+    value: "linkedin.com/in/abdourahman-youssouf-mohamed",
+    href: "https://www.linkedin.com/in/abdourahman-youssouf-mohamed-3600b5226/",
     icon: Briefcase,
     variant: "outline" as const,
   },
-  {
-    label: "GitHub",
-    value: "github.com/votreprofil",
-    href: "https://github.com",
-    icon: Code2,
-    variant: "outline" as const,
-  },
-  {
-    label: "WhatsApp",
-    value: "+33 6 00 00 00 00",
-    href: "https://wa.me/33600000000",
-    icon: MessageCircleMore,
-    variant: "outline" as const,
-  },
+  // {
+  //   label: "GitHub",
+  //   value: "github.com/votreprofil",
+  //   href: "https://github.com/Abdourahmanmed",
+  //   icon: Code2,
+  //   variant: "outline" as const,
+  // },
 ]
 
 export function ContactSection() {
