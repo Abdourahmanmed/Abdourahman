@@ -5,6 +5,7 @@ import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-
 import { ArrowRight, Menu, Sparkles, X } from "lucide-react"
 import { useEffect, useMemo, useState } from "react"
 
+import { ThemeToggle } from "@/components/theme-toggle"
 import { Button } from "@/components/ui/button"
 import { navigation } from "@/lib/constants"
 import { premiumEase } from "@/lib/motion"
@@ -109,6 +110,7 @@ export function SiteHeader() {
           </nav>
 
           <div className="hidden items-center gap-2 lg:flex">
+            <ThemeToggle />
             <Button asChild className="h-10 rounded-full px-5 text-sm">
               <Link href="#contact">
                 Let&apos;s work together <ArrowRight className="size-4" />
@@ -116,16 +118,19 @@ export function SiteHeader() {
             </Button>
           </div>
 
-          <Button
-            size="icon"
-            variant="ghost"
-            className="size-9 rounded-full lg:hidden sm:size-10"
-            aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={isMenuOpen}
-            onClick={() => setIsMenuOpen((current) => !current)}
-          >
-            {isMenuOpen ? <X className="size-4" /> : <Menu className="size-4" />}
-          </Button>
+          <div className="flex items-center gap-1 lg:hidden sm:gap-2">
+            <ThemeToggle />
+            <Button
+              size="icon"
+              variant="ghost"
+              className="size-9 rounded-full sm:size-10"
+              aria-label={isMenuOpen ? "Fermer le menu" : "Ouvrir le menu"}
+              aria-expanded={isMenuOpen}
+              onClick={() => setIsMenuOpen((current) => !current)}
+            >
+              {isMenuOpen ? <X className="size-4" /> : <Menu className="size-4" />}
+            </Button>
+          </div>
         </div>
       </div>
 
@@ -165,6 +170,11 @@ export function SiteHeader() {
                 )
               })}
             </nav>
+
+            <div className="mt-3 flex items-center justify-between rounded-xl border border-border/60 bg-card/60 px-3 py-2">
+              <p className="text-xs font-medium text-muted-foreground">Thème</p>
+              <ThemeToggle className="size-8 sm:size-9" />
+            </div>
 
             <Button asChild className="mt-3 h-10 w-full rounded-xl text-sm" onClick={() => setIsMenuOpen(false)}>
               <Link href="#contact">
