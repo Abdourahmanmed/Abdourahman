@@ -6,7 +6,7 @@ import { AnimatedSection } from "@/components/ui/animated-section"
 import { PremiumCard } from "@/components/ui/premium-card"
 import { SectionHeading } from "@/components/ui/section-heading"
 import { TechBadge } from "@/components/ui/tech-badge"
-import { fadeUpItem, sectionViewport, staggerContainer } from "@/lib/motion"
+import { cardReveal, premiumTransition, sectionViewport, staggerContainer } from "@/lib/motion"
 import { skillCategories } from "@/lib/constants"
 
 export function SkillsSection() {
@@ -26,7 +26,7 @@ export function SkillsSection() {
         className="grid gap-4 sm:gap-5 md:grid-cols-2 xl:grid-cols-3"
       >
         {skillCategories.map((group) => (
-          <motion.div key={group.category} variants={fadeUpItem}>
+          <motion.div key={group.category} variants={cardReveal}>
             <PremiumCard className="h-full border-border/60 bg-gradient-to-b from-card to-card/70 p-4 sm:p-5 md:p-6">
               <div className="mb-4 flex items-center justify-between gap-3">
                 <h3 className="text-base font-semibold md:text-lg">
@@ -45,8 +45,8 @@ export function SkillsSection() {
                 {group.skills.map((skill) => (
                   <motion.div
                     key={skill.name}
-                    whileHover={{ y: -2 }}
-                    transition={{ duration: 0.18 }}
+                    whileHover={{ y: -2, scale: 1.01 }}
+                    transition={premiumTransition}
                   >
                     <TechBadge label={skill.name} />
                   </motion.div>

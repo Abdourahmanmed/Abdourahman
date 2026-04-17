@@ -2,14 +2,14 @@
 
 import { useMemo, useState } from "react"
 
-import { AnimatePresence, motion } from "framer-motion"
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion"
 import { ExternalLink } from "lucide-react"
 
 import { AnimatedSection } from "@/components/ui/animated-section"
 import { MotionLink } from "@/components/ui/motion-link"
 import { PremiumCard } from "@/components/ui/premium-card"
 import { SectionHeading } from "@/components/ui/section-heading"
-import { premiumEase } from "@/lib/motion"
+import { buttonHover, buttonTap, premiumEase } from "@/lib/motion"
 import { type ProjectCategory, projects } from "@/lib/constants"
 
 type ProjectFilter = "all" | ProjectCategory
@@ -35,6 +35,7 @@ const categoryStyles: Record<ProjectCategory, string> = {
 
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<ProjectFilter>("all")
+  const prefersReducedMotion = useReducedMotion()
 
   const filteredProjects = useMemo(() => {
     if (activeFilter === "all") {
@@ -57,11 +58,13 @@ export function ProjectsSection() {
           const isActive = activeFilter === filterOption.value
 
           return (
-            <button
+            <motion.button
               key={filterOption.value}
               type="button"
               aria-pressed={isActive}
               onClick={() => setActiveFilter(filterOption.value)}
+              whileHover={prefersReducedMotion ? undefined : buttonHover}
+              whileTap={prefersReducedMotion ? undefined : buttonTap}
               className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors sm:text-sm ${
                 isActive
                   ? "border-primary/70 bg-primary/15 text-primary"
@@ -69,7 +72,7 @@ export function ProjectsSection() {
               }`}
             >
               {filterOption.label}
-            </button>
+            </motion.button>
           )
         })}
       </div>
@@ -80,10 +83,10 @@ export function ProjectsSection() {
             <motion.div
               layout
               key={`${project.title}-${project.category}`}
-              initial={{ opacity: 0, y: 14, scale: 0.985 }}
+              initial={{ opacity: 0, y: 12, scale: 0.988 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -10, scale: 0.985 }}
-              transition={{ duration: 0.28, ease: premiumEase }}
+              exit={{ opacity: 0, y: -8, scale: 0.988 }}
+              transition={{ duration: 0.24, ease: premiumEase }}
             >
               <PremiumCard className="flex h-full flex-col">
                 <div className="flex flex-wrap items-center gap-2">
@@ -102,11 +105,13 @@ export function ProjectsSection() {
                 <div className="mt-2 space-y-1 text-sm">
                   {project.context ? (
                     <p className="text-foreground/90">
-                      <span className="text-muted-foreground">Contexte :</span> {project.context}
+                      <span className="text-muted-foreground">Contexte :</span>{" "}
+                      {project.context}
                     </p>
                   ) : null}
                   <p className="text-foreground/90">
-                    <span className="text-muted-foreground">Type :</span> {project.type}
+                    <span className="text-muted-foreground">Type :</span>{" "}
+                    {project.type}
                   </p>
                 </div>
 

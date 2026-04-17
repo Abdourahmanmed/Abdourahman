@@ -21,7 +21,7 @@ export function PremiumCard({
     <motion.article
       whileHover={prefersReducedMotion ? undefined : subtleCardHover}
       className={cn(
-        "surface-panel rounded-2xl p-6 transition-[border-color,box-shadow,background-color,transform] duration-300 hover:border-primary/28 hover:bg-card/86 hover:shadow-[0_20px_48px_-28px_rgb(0,0,0,0.52)]",
+        "surface-panel rounded-2xl p-6 transition-[border-color,background-color,transform] duration-250 will-change-transform hover:border-primary/28 hover:bg-card/86 hover:shadow-[0_18px_40px_-30px_rgb(0,0,0,0.42)]",
         className
       )}
       {...motionProps}

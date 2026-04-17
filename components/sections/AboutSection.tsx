@@ -4,7 +4,12 @@ import { motion } from "framer-motion"
 import { Code2, Smartphone, Sparkles } from "lucide-react"
 
 import { SectionHeading } from "@/components/ui/section-heading"
-import { fadeUpItem, sectionViewport, staggerContainer } from "@/lib/motion"
+import {
+  cardReveal,
+  premiumTransition,
+  sectionViewport,
+  staggerContainer,
+} from "@/lib/motion"
 
 const valueBlocks = [
   {
@@ -38,7 +43,7 @@ export function AboutSection() {
       viewport={sectionViewport}
     >
       <div className="surface-panel-strong soft-border rounded-3xl bg-gradient-to-b from-card/90 to-card/64 p-4 sm:p-6 md:p-8 lg:p-10">
-        <motion.div variants={fadeUpItem}>
+        <motion.div variants={cardReveal}>
           <SectionHeading
             eyebrow="À propos"
             title="Un partenaire technique moderne, fiable et orienté résultats"
@@ -49,7 +54,7 @@ export function AboutSection() {
 
         <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr] lg:items-end">
           <motion.p
-            variants={fadeUpItem}
+            variants={cardReveal}
             className="text-refined max-w-2xl text-base leading-relaxed md:text-lg"
           >
             Mon positionnement est simple : livrer des solutions élégantes qui
@@ -60,7 +65,7 @@ export function AboutSection() {
           </motion.p>
 
           <motion.div
-            variants={fadeUpItem}
+            variants={cardReveal}
             className="rounded-2xl border border-primary/24 bg-primary/10 p-5 shadow-[inset_0_1px_0_rgb(255_255_255/0.4)]"
           >
             <p className="text-xs tracking-[0.16em] text-primary uppercase">
@@ -83,12 +88,12 @@ export function AboutSection() {
             return (
               <motion.article
                 key={block.title}
-                variants={fadeUpItem}
-                whileHover={{ y: -4 }}
-                transition={{ duration: 0.24 }}
+                variants={cardReveal}
+                whileHover={{ y: -4, scale: 1.006 }}
+                transition={premiumTransition}
                 className="surface-panel group rounded-2xl p-5"
               >
-                <div className="mb-4 inline-flex rounded-xl border border-primary/20 bg-primary/10 p-2.5 text-primary transition-colors duration-300 group-hover:border-primary/40">
+                <div className="mb-4 inline-flex rounded-xl border border-primary/20 bg-primary/10 p-2.5 text-primary transition-colors duration-250 group-hover:border-primary/40">
                   <Icon className="size-5" />
                 </div>
                 <h3 className="text-lg font-semibold tracking-tight">
